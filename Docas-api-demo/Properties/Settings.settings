@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="docas_api_demo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DocasApi" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://docas.dk/api</Value>
+    </Setting>
+    <Setting Name="ApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">d0a8359f-41a6-4950-81bc-cf7dcee17005</Value>
+    </Setting>
+    <Setting Name="VendorId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">5a8f3d45-75c4-429e-a9e1-a49000e26fc0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

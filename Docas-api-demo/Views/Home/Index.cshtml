@@ -1,0 +1,24 @@
+﻿@model List<docas_api_demo.Models.DocasCourseModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Vendor.Name</h1>
+    <p class="lead">@Html.Raw(ViewBag.VendorDescription)</p>
+
+</div>
+
+<div class="row">
+    @foreach (var coursemodel in Model)
+     {
+         <div class="col-md-4">
+             <h2>@coursemodel.Name</h2>
+             <p>
+                 @coursemodel.Description
+             </p>
+             <p>@Html.ActionLink("Se kurser", "Details", "courseModel", new{id=coursemodel.ID},null)</p>
+         </div>
+     }
+
+</div>

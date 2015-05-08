@@ -1,0 +1,45 @@
+﻿@using System.Activities
+@model docas_api_demo.Models.DocasCourse
+@{
+    ViewBag.Title = @Model.Start.GetValueOrDefault().ToShortDateString() + " - " + @Model.Name;
+}
+<h2>@Model.Start.GetValueOrDefault().ToLongDateString() - @Model.LocationCity</h2>
+<h3>@Model.Name</h3>
+
+<p>@Html.Raw(Model.Description)</p>
+<h4>Underviser</h4>
+<p>@Html.ActionLink(Model.InstructorName, "Details", "instructor", new {id = Model.InstructorId}, null)</p>
+<h4>Sted</h4>
+<p>
+@Html.ActionLink(Model.LocationName, "details", "location", new {id = Model.LocationId}, null)<br />
+    @Model.LocationAddress<br />
+    @Model.LocationZipCode @Model.LocationCity
+</p>
+<form action="https://docas.dk/public/addtobasket" method="post">
+    <input type="hidden" name="CourseId" value="@Model.ID" />
+    <input type="hidden" name="Quantity" value="1" />
+    <button title="TIlmeld">Tilmeld dig nu</button>
+</form>
+<h4>Mødedage</h4>
+<table class="meetingdaytable">
+    <thead>
+        <tr>
+            <th>Dato</th>
+            <th>Tidspunkt</th>
+            <th>Underviser</th>
+            <th>Sted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var meetingDay in Model.MeetingDays)
+        {
+            <tr>
+                <td>@meetingDay.Start.ToLongDateString()</td>
+                <td>@meetingDay.Start.ToString("HH:mm") - @meetingDay.End.ToString("HH:mm")</td>
+                <td>@meetingDay.InstructorName</td>
+                <td>@meetingDay.LocationName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,13 @@
+﻿@model docas_api_demo.Models.DocasInstructor[]
+@{
+    ViewBag.Title = "Undervisere";
+}
+
+<h2>Undervisere</h2>
+
+@foreach (var instructor in Model)
+{
+    <h3>@instructor.Name</h3>
+    <p>@Html.Raw(instructor.Cv)</p>
+}
+

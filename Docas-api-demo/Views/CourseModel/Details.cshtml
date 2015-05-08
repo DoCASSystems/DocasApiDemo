@@ -1,0 +1,35 @@
+﻿@using System.Data.Entity.ModelConfiguration.Conventions
+@using System.Web.DynamicData
+@model docas_api_demo.Models.DocasCourseModel
+@{
+    ViewBag.Title = @Model.Name;
+}
+<h2>@Model.Name</h2>
+
+<p>@Html.Raw(Model.Description)</p>
+
+<h3>Kurser</h3>
+<table class="coursetable">
+    <thead>
+        <tr>
+            <th>Dato</th>
+            <th>Tid</th>
+            <th>Underviser</th>
+            <th>Sted</th>
+            <th>By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.Courses)
+        {
+            <tr>
+                <td>@Html.ActionLink(course.Start.GetValueOrDefault().ToLongDateString(), "details", "course", new { id = course.ID }, null)</td>
+                <td>@course.Start.GetValueOrDefault().ToString("HH:mm") - @course.End.GetValueOrDefault().ToString("HH:mm") </td>
+                <td>@course.InstructorName</td>
+                <td>@course.LocationName</td>
+                <td>@course.LocationCity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

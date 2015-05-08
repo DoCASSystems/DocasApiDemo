@@ -1,0 +1,13 @@
+﻿@using System.Data.Entity.ModelConfiguration.Conventions
+@using System.Web.DynamicData
+@model docas_api_demo.Models.DocasInstructor
+@{
+    ViewBag.Title = @Model.Name;
+}
+<h2>@Model.Name</h2>
+<p>@Model.Email</p>
+<p>@Model.Phone</p>
+<p>@Html.Raw(Model.Cv)</p>
+
+
+
